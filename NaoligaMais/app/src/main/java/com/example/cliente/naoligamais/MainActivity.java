@@ -35,17 +35,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getBaseContext(), Lista.class));
     }
 
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_block);
-//    }
-//
-//    public void proximaTela(View view){
-//
-//        Intent intent = new Intent(this, Block.class);
-//        startActivity(intent);
-//    }
-
 }

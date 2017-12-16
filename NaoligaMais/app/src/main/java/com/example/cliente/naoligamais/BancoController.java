@@ -53,6 +53,4 @@ public class BancoController {
         return cursor;
     }
 
-
-
 }

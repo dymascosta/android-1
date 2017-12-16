@@ -26,9 +26,9 @@ public class CriaBanco extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String sql = "CREATE TABLE"+TABELA+"("
+        String sql = "CREATE TABLE "+TABELA+" ( "
                 + ID + " integer primary key autoincrement,"
-                + NUMERO + " text,"
+                + NUMERO + " text"
                 +")";
         db.execSQL(sql);
 

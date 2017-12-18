@@ -17,7 +17,9 @@ public class Lista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
 
-        String te= "ate aki no listagem";
+
+
+        //String te= "ate aki no listagem";
 
         BancoController crud = new BancoController(getBaseContext());
         Cursor cursor = crud.carregaDados();
@@ -38,8 +40,9 @@ public class Lista extends AppCompatActivity {
         BaseAdapterLista baseAdapterLista = new BaseAdapterLista(listaNumeros, this);
 
         listar.setAdapter(baseAdapterLista);
+        baseAdapterLista.notifyDataSetChanged();
+        listar.setAdapter(baseAdapterLista);
 
-
-        Toast.makeText(getApplicationContext(),te , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),te , Toast.LENGTH_SHORT).show();
     }
 }

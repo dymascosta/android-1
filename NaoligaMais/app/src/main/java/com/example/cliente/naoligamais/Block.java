@@ -15,12 +15,7 @@ public class Block extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_block);
 
-        Toast.makeText(getApplicationContext(), "deu aki",Toast.LENGTH_SHORT).show();
-
-
-
-
-
+        Toast.makeText(getApplicationContext(), "digite (ddd)xxxxxxxxx ",Toast.LENGTH_SHORT).show();
 
         Button botao = (Button)findViewById(R.id.salvar);
 
@@ -31,14 +26,25 @@ public class Block extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                BancoController crud = new BancoController(getBaseContext());
 
-                String numeroString = numero.getText().toString();
-                String result;
+                if(numero.length() !=12) {
 
-                result = crud.InsereDado(numeroString);
+                    Toast.makeText(getApplicationContext(), "Cadastro de numero invalido! digite (ddd)xxxxxxxxx ", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(), "foi", Toast.LENGTH_LONG).show();
+                }
+
+                else
+                {
+                    BancoController crud = new BancoController(getBaseContext());
+
+                    String numeroString = numero.getText().toString();
+                    String result;
+
+                    result = crud.InsereDado(numeroString);
+
+                    Toast.makeText(getApplicationContext(), "numero cadastrado", Toast.LENGTH_LONG).show();
+                    finish();
+                }
 
             }
 

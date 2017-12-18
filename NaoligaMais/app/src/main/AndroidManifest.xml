@@ -23,6 +23,18 @@
             android:label="@string/title_activity_block"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Lista"></activity>
+
+        <receiver  android:name=".Callbarring">
+            <intent-filter  android:priority="100" >
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
     </application>
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
 
 </manifest>

@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String te= "ate aki";
+        //String te= "ate aki";
 
-        Toast.makeText(getApplicationContext(),te , Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(),te , Toast.LENGTH_SHORT).show();
     }
 
     public void btTela1(View view)

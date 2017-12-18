@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
 
+
 /**
  * Created by Cliente on 14/12/2017.
  */
@@ -51,6 +52,22 @@ public class BancoController {
         }
         db.close();
         return cursor;
+    }
+
+    public Cursor buscaRegistro(String id){
+
+        db = dadosbanco.getReadableDatabase();
+        Cursor idNum = db.rawQuery( "SELECT * FROM fone WHERE numero = ?" , new String[]{id});
+        db.close();
+        return idNum;
+    }
+
+
+    public void deletaRegistro(String id){
+        String where = CriaBanco.ID + "=" + id;
+        db = dadosbanco.getReadableDatabase();
+        db.delete(CriaBanco.TABELA,where,null);
+        db.close();
     }
 
 }

@@ -2,9 +2,11 @@ package com.example.cliente.naoligamais;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteClosable;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
+import java.util.ArrayList;
 
 
 /**
@@ -54,12 +56,26 @@ public class BancoController {
         return cursor;
     }
 
-    public Cursor buscaRegistro(String id){
+    public boolean buscaRegistro(String id){
+        Cursor cursor = carregaDados();
 
-        db = dadosbanco.getReadableDatabase();
-        Cursor idNum = db.rawQuery( "SELECT * FROM fone WHERE numero = ?" , new String[]{id});
-        db.close();
-        return idNum;
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                String numero = cursor.getString(1);
+
+                if(numero.equals(id))
+                {
+                    return true;
+                }
+
+            } while (cursor.moveToNext());
+
+        }
+
+        return false;
+
     }
 
 

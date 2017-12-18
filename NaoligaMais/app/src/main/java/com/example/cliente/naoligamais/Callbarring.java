@@ -3,7 +3,10 @@ package com.example.cliente.naoligamais;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.telephony.TelephonyManager;
+
+import com.android.internal.telephony.ITelephony;
 
 import java.lang.reflect.Method;
 
@@ -14,15 +17,43 @@ import java.lang.reflect.Method;
 
 
 public class Callbarring extends BroadcastReceiver {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if(!intent.getAction().equals("android.intent.action.PHONE_STATE")) return;
+    private String number;
 
-        else{
+
+
+
+
+
+
+
+
+
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+
+        if (!intent.getAction().equals("android.intent.action.PHONE_STATE"))
+            return;
+
+
+        else
+        {
+            BancoController crud = new BancoController(context);
+
+
+            number = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
+
+
+            if(crud.buscaRegistro(number))
+            {
+
             disconnectPhoneItelephony(context);
             return;
+
+            }
         }
     }
+
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private void disconnectPhoneItelephony(Context context)
